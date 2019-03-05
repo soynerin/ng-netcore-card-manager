@@ -14,9 +14,19 @@ export class PaymentDetailService {
     
   }
 
-  postPaymentDetail(formData: PaymentDetail){
+  postPaymentDetail(){
     return this.http
-      .post(this.rootUrl + '/PaymentDetails', formData);
+      .post(this.rootUrl + '/PaymentDetails', this.formData);
+  }
+
+  putPaymentDetail(){
+    return this.http
+      .put(this.rootUrl + '/PaymentDetails/' + this.formData.PDId, this.formData);
+  }
+
+  deletePaymentDetail(id){
+    return this.http
+      .delete(this.rootUrl + '/PaymentDetails/' + id);
   }
 
   refreshList(){
