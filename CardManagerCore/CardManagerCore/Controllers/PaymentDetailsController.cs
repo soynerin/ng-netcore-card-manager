@@ -55,6 +55,20 @@ namespace CardManagerCore.Controllers
             return NoContent();
         }
 
+        // GET: api/PaymentDetails/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PaymentDetail>> GetPaymentDetail(int id)
+        {
+            var paymentDetail = await _context.PaymentDetails.FindAsync(id);
+
+            if (paymentDetail == null)
+            {
+                return NotFound();
+            }
+
+            return paymentDetail;
+        }
+
         // POST: api/PaymentDetails
         [HttpPost]
         public async Task<ActionResult<PaymentDetail>> PostPaymentDetail(PaymentDetail paymentDetail)

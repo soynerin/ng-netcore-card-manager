@@ -36,6 +36,8 @@ namespace CardManagerCore
                     }
                 );
 
+            services.AddCors();
+
             services.AddDbContext<PaymentDetailContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
         }
@@ -49,6 +51,12 @@ namespace CardManagerCore
             }
 
             app.UseMvc();
+
+            app.UseCors(options => 
+                options
+                    .WithOrigins("http://localhost:4200")
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader());
         }
     }
 }
