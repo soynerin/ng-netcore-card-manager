@@ -29,4 +29,5 @@ import { ToastrModule } from 'ngx-toastr';
   providers: [PaymentDetailService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
